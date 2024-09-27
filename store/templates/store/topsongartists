@@ -1,0 +1,26 @@
+    {% if top_tracks %}
+      <h3 class="top-tracks-title">Your Top Tracks:</h3>
+      <ul class="track-list">
+        {% for track in top_tracks %}
+          <li>{{ track.name }} by 
+            {% for artist in track.artists %}
+              {{ artist.name }}
+              {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="no-tracks-msg">No top tracks available. Connect with Spotify to see your top tracks.</p>
+    {% endif %}
+
+    {% if top_artists %}
+      <h3 class="top-artists-title">Your Top Artists:</h3>
+      <ul class="artist-list">
+        {% for artist in top_artists %}
+          <li>{{ artist.name }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="no-artists-msg">No top artists available. Connect with Spotify to see your top artists.</p>
+    {% endif %}

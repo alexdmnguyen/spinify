@@ -1,0 +1,40 @@
+# Django specific
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+
+# Ignore environment variables and secrets
+.env
+
+# Ignore virtual environments
+venv/
+env/
+ENV/
+venv.bak/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDEs and editors specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore staticfiles and migrations
+staticfiles/
+migrations/
+
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+*$py.class
+
+# Pytest
+htmlcov/
+.tox/
+coverage.xml
+.cache/

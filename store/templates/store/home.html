@@ -1,0 +1,98 @@
+<!-- store/templates/store/home.html -->
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% if top_albums %}
+
+<section class="page-title animate-border">
+  <h2>{{ user_name }}'s Vinyl Shop</h2>
+</section>
+
+<div class="top-text">
+  Top Songs & Albums
+</div>
+
+<div class="time-range-buttons">
+  <a href="?time_range=long_term" {% if request.GET.time_range == "long_term" %}class="active"{% endif %}>All Time</a>
+  <a href="?time_range=medium_term" {% if request.GET.time_range == "medium_term" %}class="active"{% endif %}>Last 6 Months</a>
+  <a href="?time_range=short_term" {% if request.GET.time_range == "short_term" %}class="active"{% endif %}>Last 30 Days</a>
+</div>
+
+<ul class="album-list">
+  {% for album_data in top_albums|slice:":30" %}
+  <li>
+    <div class="album-container">
+      <div class="cover-container" onclick="window.location='{% url 'product_page' album_data.id %}'" style="cursor: pointer;">
+        <img class="album-cover" src="{{ album_data.images.0.url }}" alt="{{ album_data.name }} cover">
+        <!-- <img class="album-cover-vinyl" src="{% static 'images/cd.png' %}" alt="CD Picture"> -->
+        <img class="album-cover-vinyl-two" src="{% static 'images/cd2.png' %}" alt="CD Picture">
+      </div>
+      <p class="album-info" onclick="window.location='{% url 'product_page' album_data.id %}'" style="cursor: pointer;">{{ album_data.name }}</p>
+      <p class="album-artist">{{ album_data.artists.0.name }}</p>
+      <p class="album-price">${{ album_data.price }}</p>
+      <!-- <form method="post" action="{% url 'add_to_cart' album_data.id %}">
+        {% csrf_token %}
+        <input type="submit" value="Add to Cart" class="add-to-cart-btn">
+      </form> -->
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<section class="page-title animate-border">
+  <h2>Your Vinyl Shop</h2>
+</section>
+
+<p class="no-albums-msg">No top albums available yet. Connect with Spotify to see your top albums and your custom Vinyl Shop!</p>
+
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  loadTopAlbums('long_term'); // Load top albums for all time by default
+
+  $('.time-range-button').click(function() {
+    var timeRange = $(this).data('time-range');
+    loadTopAlbums(timeRange);
+  });
+
+  function loadTopAlbums(timeRange) {
+    $.ajax({
+      url: "{% url 'home' %}?time_range=" + timeRange,
+      type: 'GET',
+      success: function(data) {
+        $('#top-albums').empty().html(data);
+      },
+      error: function(xhr, status, error) {
+        console.error(xhr.responseText);
+      }
+    });
+  }
+});
+</script>
+
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const title = document.querySelector('.page-title h2, .cart-header h2, .checkout-title h2');
+
+      // Function to toggle text stroke color
+      const toggleTextStrokeColor = function() {
+        title.classList.toggle('animate-text-stroke'); // Toggle a class for animation
+      };
+
+      // Set interval to toggle text stroke color every 2 seconds
+      setInterval(toggleTextStrokeColor, 4000); // Adjust the interval as needed
+
+      // Set timeout to reset text stroke color after a few seconds
+      // setTimeout(function() {
+      //   toggleTextStrokeColor(); // Reset text stroke color
+      // }, 5000); // Adjust the timeout as needed
+    });
+  </script> -->
+
+{% endblock %}

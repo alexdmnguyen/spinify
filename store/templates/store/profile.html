@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-title animate-border">
+  <h2>My Orders</h2>
+</section>
+
+<div class="order-history">
+  {% if orders %}
+    <ul class="order-list">
+      {% for order in orders %}
+        <li class="order-item">
+          <div class="order-header">
+            <span class="order-id">Order #{{ order.id }}</span>
+            <span class="album-price"><strong>Order Total:</strong> ${{ order.total_price }}</span>
+            <span class="album-price"><strong>Shipping Address:</strong> {{ order.shipping_address }}</span>
+            <span class="album-price"><strong>Credit Card (Last 4 digits):</strong> {{ order.credit_card_last_4_digits }}</span>
+          </div>
+          <ul class="item-list">
+            {% for item in order.orderitem_set.all %}
+              <li class="item">
+                <div class="profile-item-details">
+                  <img src="{{ item.album.cover_url }}" alt="{{ item.album.title }} cover" class="profile-album-cover">
+                  <div class="item-info">
+                    <span class="cart-album-title"><strong>{{ item.album.title }} </strong></span> - <span class="profile-album-artist"><i>{{item.album.artist }}</i></span>
+                    <p class="album-price"><strong>Quantity:</strong> {{item.quantity}}</p>
+                    <p class="album-price"><strong>Price:</strong> ${{ item.album.price }}</p>
+                    <!-- <p class="album-price"><strong>Total:</strong> ${{ item.total_item_price }}</p> -->
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="no-albums-msg">No orders yet. Go ahead and purchase a vinyl!</p>
+  {% endif %}
+</div>
+{% endblock %}

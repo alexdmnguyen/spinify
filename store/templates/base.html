@@ -1,0 +1,75 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SHAQ{% endblock %}</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/styles.css' %}">
+    <!-- Add your CSS links or stylesheets here -->
+</head>
+<body>
+    <header class="site-header"> <!-- Added class for styling -->
+        <div class="header-logo-container">
+            {% if user.is_authenticated %}
+                <a href="{% url 'home' %}"><img src="{% static 'images/alexcircle.png' %}" alt="Logo" className="cart-logo" /></a>
+            {% else %}
+                <a href="{% url 'landing' %}"><img src="{% static 'images/alexcircle.png' %}" alt="Logo" className="cart-logo" /></a>
+            {% endif %}
+        </div>
+
+        {% if user.is_authenticated %}
+            <nav class="main-nav"> <!-- Added class for styling -->
+                <ul>
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li class="spotify-logo-container">
+                        <a href="{% url 'spotify_login' %}">Spotify Login</a>
+                        <img src="{% static 'images/spotify_logo.png' %}" alt="spotify-logo" class="spotify-logo" />
+                    </li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+
+        {% else %}
+            <nav class="landing-main-nav"> <!-- Added class for styling -->
+                <ul>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                </ul>
+            </nav>
+        {% endif %}
+
+        {% load cart_tags %}
+        {% if user.is_authenticated %}
+            <div class="cart-logo-container">
+                <a href="{% url 'cart' %}">
+                    <img src="{% static 'images/cart.png' %}" alt="Logo" class="cart-logo" />
+                    <span class="cart-text">Cart</span>
+                    <!-- <span class="cart-item-count">{{ cart.cart_items }}</span> -->
+                </a>
+            </div>
+        {% endif %}
+    </header>
+
+    <main class="site-content"> <!-- Added class for styling -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer"> <!-- Added class for styling -->
+        <!-- Add footer content here -->
+    </footer>
+
+    <div id="notification" class="notification" style="display: none;"></div>
+
+    <!-- Add your JavaScript links or scripts here -->
+</body>
+</html>

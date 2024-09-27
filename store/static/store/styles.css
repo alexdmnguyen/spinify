@@ -1,0 +1,1186 @@
+/* :root {
+  --second-color: #c2c0f0;
+  --main-color: #464555;
+} */
+
+/* :root {
+  --main-color: #464555;
+  --second-color: #D5E9E8;
+} */
+
+/* :root {
+  --main-color: #324B4A;
+  --second-color: #D5E9E8;
+} */
+
+/* :root {
+  --main-color: black;
+  --second-color: white;
+} */
+
+:root {
+  --main-color: #BA3C8F;
+  --second-color: #D8BFD8;
+  --third-color: #BA3C8F;
+  --fourth-color: black;
+}
+
+/* :root {
+  --main-color:#5666A1;
+  --second-color: #EAEFFF;
+} */
+
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+  /* font-family: 'Inter', sans-serif; */
+  font-family: 'Concert One', sans-serif;
+}
+
+/* Apply a background color to the body */
+body {
+  background-color: #f0f0f0;
+  background-color: #E8D5B5;
+  background-color: #E9EFFF;
+  background-color: #D8BFD8;
+  background-color: var(--second-color);
+}
+
+.header-logo-container {
+  padding-left: 50px;
+}
+
+.cart-logo-container {
+  padding-right: 50px;
+}
+
+.cart-logo-container a {
+  text-decoration: none;
+  color: black;
+  
+}
+
+.cart-logo-container img {
+  width: 35px;
+  height: 35px;
+}
+
+.header-logo-container img {
+  width: 50px;
+  height: 60px;
+}
+
+.cart-text p{
+  text-decoration: none;
+}
+
+.spotify-logo-container {
+  position: relative;
+}
+
+.spotify-logo-container img {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 30px; /* Adjust the distance from the text */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  opacity: 65%;
+}
+
+/* Style the header */
+.site-header {
+  /* background-color: #1d0091; */
+  background-color: var(--main-color);
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: var(--main-color);
+  /* color: black; */
+  padding: 10px;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  /* border-bottom: 2px solid #1d0091; */
+  box-shadow: 0 -5px 12px -2px #000000; 
+  z-index: 1;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+/* Style the navigation */
+.main-nav, .landing-main-nav {
+  list-style: none;
+}
+
+.landing-main-nav {
+  margin-right: 15px;
+}
+
+.main-nav ul, .landing-main-nav ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav li, .landing-main-nav li{
+  margin: 0 15px;
+}
+
+.main-nav a, .cart-logo-container a, .landing-main-nav a {
+  text-decoration: none;
+  color: var(--main-color);
+  color: black;
+  font-size: 20px;
+  font-family: 'Lilita One', sans-serif;
+}
+
+.main-nav a:hover, .landing-main-nav a:hover{
+  padding-bottom: 24px;
+  border-bottom: 3.5px solid black;
+}
+
+.cart-logo-container a:hover {
+  text-decoration: none;
+}
+
+/* Style the main content area */
+.site-content {
+  padding: 20px;
+  padding-top: 75px;
+}
+
+.page-title, .cart-header, .checkout-title {
+  width: 75%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: 0 auto;
+  /* border-bottom: 2px solid var(--main-color); */
+  /* border-bottom: thick double var(--main-color); */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center the text within the page title */
+  margin-bottom: 2%;
+}
+
+.checkout-title {
+  text-align: left;
+  align-items: left;
+  padding-left: 0%;
+  width: 100%;
+}
+
+.page-title h2, .cart-header h2, .checkout-title h2 {
+  /* font-family: 'Inter', sans-serif; */
+  font-family: 'Concert One', sans-serif;
+  font-family: 'Poor Story', system-ui;
+  font-family: 'Lilita One', sans-serif;
+  font-weight: 500;
+  font-size: 4rem;
+  color: black;
+  color: var(--third-color);
+  /* color: var(--second-color); */
+  -webkit-text-stroke-width: 0px;
+  -webkit-text-stroke-color: var(--main-color);
+}
+
+@keyframes flash {
+  0% {
+    /* -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--main-color); */
+    color: var(--third-color);
+    /* color: var(--second-color); */
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: var(--main-color);
+  }
+
+  50% {
+    /* -webkit-text-stroke-width: 0;
+    -webkit-text-stroke-color: transparent; */
+    color: var(--second-color);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+  }
+
+  100% {
+    /* -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--main-color); */
+    color: var(--third-color);
+    /* color: var(--second-color); */
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: var(--main-color);
+  }
+}
+
+.animate-text-stroke {
+  animation: flash 2s infinite; /* Adjust the animation duration as needed */
+}
+
+@keyframes slide {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+.top-text {
+  text-align: center;
+  opacity: 50%;
+}
+
+.animate-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px; /* Adjust the border-bottom height as needed */
+  background-color: var(--main-color); /* Adjust the border-bottom color as needed */
+  animation: slide 2s infinite; /* Adjust the animation duration as needed */
+}
+
+/* Style the album container */
+.album-container {
+  width: 90%;
+  max-width: 550px;
+  /* margin: 0 auto; */
+  text-align: center;
+  /* border: 1px solid #ddd; */
+  padding: 10px;
+  margin-bottom: 10%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.album-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.album-container p {
+  /* margin: 5px 0; */
+  /* margin-left: 5%; */
+}
+
+.album-container form {
+  margin-top: 10px;
+  margin-left: 5%;
+}
+
+.album-info {
+  font-family: 'Inter', sans-serif;
+  font-family: 'Concert One', sans-serif;
+  color: black;
+  color: var(--third-color);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.album-info:hover {
+  text-decoration: underline;
+}
+
+.album-artist {
+  color: black;
+  color: var(--fourth-color);
+  font-size: 15px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+  background-color: var(--main-color);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.product-add-to-cart-btn, .checkout-btn, .tracklist-btn, .register-btn {
+  font-family: 'Concert One', sans-serif;
+  font-size: 20px;
+  /* background-color: white; */
+  background-color: var(--second-color);
+  border: none;
+  /* box-shadow:inset 0px 0px 0px 2px var(--main-color); */
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
+  color: var(--main-color);
+  padding: 15px 75px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.checkout-btn a {
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+
+.register-btn {
+  background-color: var(--main-color);
+  color: var(--second-color);
+  padding: 10px 35px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.register-btn:hover {
+  background-color: black;
+}
+
+.product-add-to-cart-btn:hover {
+  background-color: black;
+  color: var(--second-color);
+}
+
+.tracklist-btn {
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tracklist {
+  padding-bottom: 10px;
+}
+
+.product-description h3 {
+  font-family: 'Concert One', sans-serif;
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: var(--main-color);
+}
+
+.checkout-btn {
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 20px;
+  padding: 15px 95px;
+}
+
+.checkout-btn:hover {
+  background-color: var(--main-color);
+  color: var(--second-color);
+}
+
+.checkout-btn:hover .checkout-btn-text {
+  color: var(--second-color);
+}
+
+/* Style the album list */
+.album-list, .info-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-left: 5%;
+  padding-right: 5%;
+  /* border: 1px solid black; */
+}
+
+.album-list li {
+  width: 35%;
+  margin-bottom: 20px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* border: 1px solid black; */
+}
+
+
+.info-list {
+  flex-wrap: none;
+  justify-content: left;
+  padding: 0;
+}
+
+.info-list li {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* Style the messages */
+.no-albums-msg,
+.no-tracks-msg,
+.no-artists-msg,
+.landing-msg {
+  font-style: italic;
+  color: #888;
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+}
+
+.landing-msg {
+  margin-bottom: 50px;
+}
+
+/* Style the track and artist lists */
+.track-list,
+.artist-list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.top-tracks-title,
+.top-artists-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.cover-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+  margin-bottom: 10%;
+}
+
+.cover-container:hover {
+  transform: scale(1.1);
+}
+
+.album-cover{
+  width: 60%;
+  max-width: 200px;
+  box-shadow: 8px 12px 20px -2px black;
+  transition: linear 0.25s;
+  transform: translateX(25%) rotate(0deg);
+}
+
+.album-cover:hover {
+  box-shadow: 0px 2px 15px 5px #000000;
+}
+
+.album-cover-vinyl {
+  width: 36%;
+  max-width: 400px;
+}
+
+.album-cover-vinyl-two {
+  width: 57%;
+  max-width: 400px;
+  transform: translateX(-25%) rotate(0deg);
+  z-index: -1;
+}
+
+.product-album-cover-vinyl-two {
+  position: relative;
+  transform: translateX(-102%);
+  width: 55%;
+  max-width: 395px; /* Adjust the size as needed */
+  animation: moveLeftRight 5s ease;
+  animation-delay: 2.5s;
+  z-index: -1;
+}
+
+/* .product-description {
+  display: flex;
+} */
+
+.description-column {
+  flex: 1;
+  text-align: left;
+}
+
+.tracklist-column {
+  flex: 1;
+  text-align: right;
+}
+
+@keyframes moveLeftRight {
+  0%, 100% {
+      transform: translateX(-102%);
+  }
+
+  50% {
+      transform: translateX(-50%);
+  }
+}
+
+
+.cart-header {
+  border: none;
+}
+
+.cart-container {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.cart-item, .checkout-item {
+  list-style: none;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  border-bottom: 1px solid var(--main-color);
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.cart-item img, .checkout-item img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 10px;
+}
+
+.cart-album-title {
+  color: var(--main-color);
+}
+
+.checkout-item {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.checkout-price {
+  margin-bottom: 40px;
+}
+
+.cart-buttons {
+  margin-top: 20px;
+}
+
+.cart-bottom {
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: right;
+}
+
+.cart-quantity-box{
+  width: 40px;
+  border: 2px dotted black;
+  background-color: var(--second-color);
+
+}
+
+.remove-button{
+}
+
+.remove-button {
+  font-family: 'Concert One', sans-serif;
+  background-color: var(--second-color);
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px;
+  transition: 0.2s ease;
+}
+
+.remove-button:hover {
+  background-color: black;
+  color: var(--second-color);
+}
+
+.checkout-container {
+
+}
+
+.product-page {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 5%;
+}
+
+.product-details {
+  display: flex;
+  gap: 20px;
+}
+
+.product-info {
+  translate: -50%;
+  width: 50%;
+}
+
+.product-cover-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-album-cover {
+  width: 60%;
+  box-shadow: 8px 12px 20px -2px black;
+  max-width: 400px;
+  /* width: 400px; */
+}
+
+.product-album-cover-vinyl {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 250px; /* Adjust the size as needed */
+  animation: moveLeftRight 5s ease infinite;
+  animation-delay: 1s;
+  z-index: -1;
+}
+
+/* @keyframes moveLeftRight {
+  0%, 100% {
+      transform: translateX(-2%);
+  }
+
+  50% {
+      transform: translateX(-75%);
+  }
+} */
+
+.product-album-info {
+  max-width: 400px; /* Adjust the width as needed */
+}
+
+.product-album-name {
+  color: var(--main-color);
+}
+
+.product-description {
+  text-align: center;
+  /* border: #1d0091 1px solid; */
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+}
+
+.product-title {
+  margin-bottom: 10px;
+}
+
+.product-artist {
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.product-price {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.underline {
+  border-bottom: solid 2px var(--main-color);
+  width: 150%;
+  margin-bottom: 40px;
+}
+
+/* .quantity-box {
+  width: 50px;
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-top: 10px;
+} */
+
+.quantity-input {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-btn {
+  background-color: var(--main-color);
+  color: var(--second-color);
+  border: none;
+  height: 55px;
+  cursor: pointer;
+  font-size: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background-color: black;
+}
+
+#id_quantity {
+  background-color: var(--second-color);
+  width: 40px;
+  text-align: center;
+  margin: 0;
+  border: none;
+  height: 55px;
+  padding: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.order-history {
+  margin-top: 20px;
+}
+
+.order-list {
+  list-style: none;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.order-item {
+  margin-bottom: 30px;
+  border: 2px dotted var(--main-color);
+  border-radius: 5px;
+  /* padding: 15px; */
+}
+
+.order-header {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  border-bottom: 1px solid var(--main-color);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: var(--second-color);
+}
+
+.order-id {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.item-list {
+  list-style: none;
+  padding: 15px;
+}
+
+.item {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.profile-item-details {
+  display: flex;
+  align-items: center;
+}
+
+.profile-album-cover {
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.item-info {
+  flex-grow: 1;
+}
+
+.profile-album-title {
+  font-weight: bold;
+}
+
+.profile-album-artist {
+  font-style: italic;
+  color: #666;
+}
+
+.quantity,
+.price {
+  margin-top: 5px;
+  color: #888;
+}
+
+.album-price, .product-price, .order-total {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 500;
+}
+
+.order-total {
+  text-align: right;
+}
+
+.notification {
+  position: fixed;
+  top: 100px; /* Adjust top position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--main-color); /* Adjust background color */
+  color: var(--second-color);
+  padding: 20px 40px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.product-description li {
+  list-style: none;
+}
+
+.time-range-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.time-range-buttons a {
+  text-decoration: none;
+  color: var(--main-color);
+  background-color: none;
+  padding: 10px 20px;
+  /* border-radius: 5px; */
+  margin: 0 10px;
+  border-bottom: 2px solid transparent;
+  transition: 0.65s ease;
+  /* transition: background-color 0.3s ease; */
+}
+
+.time-range-buttons a:hover {
+  /* background-color: black; */
+  /* color: var(--second-color); */
+  border-bottom: 2px solid black;
+  color: black;
+  /* color: white; */
+}
+
+.time-range-buttons a.active {
+  /* background-color: black; */
+  /* color: var(--second-color); */
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+
+@media screen and (max-width: 600px) {
+  .page-title h2, .cart-header h2, .checkout-title h2 {
+    font-size: 2rem;
+  }
+
+  .album-info {
+    font-size: 1.2rem;
+  }
+
+  .album-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .album-list li {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .album-container {
+    align-items: center;
+  }
+
+  .cover-container {
+    translate: 5%;
+  }
+
+  .album-container {
+    text-align: center;
+  }
+
+  .page-title, .cart-header, .checkout-title {
+    margin-bottom: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+  }
+
+  .cart-container {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .cart-bottom {
+    margin-right: 5%;
+  }
+
+  .checkout-btn {
+    padding: 10px 0px 10px 0px;
+    text-align: right;
+  }
+
+  .album-container {
+    padding-bottom: 0%;
+  }
+
+  .album-list li {
+    padding-bottom: 0;
+  }
+
+  .page-title {
+    width: 90%;
+  }
+
+  .order-list {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .time-range-buttons a{
+    padding: 5px 5px;
+  }
+  
+  .product-description {
+    margin-bottom: 9%;
+  }
+
+  .order-header {
+    display: grid;
+    height: auto;
+  }
+
+  .header-logo-container {
+    padding-left: 10px;
+  }
+
+  .main-nav ul {
+    align-items: center;
+  }
+
+  .spotify-logo-container img {
+    left: 5px;
+  }
+
+  .cart-logo-container {
+    padding-right: 10px;
+  }
+
+  .site-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .main-nav a:hover, .landing-main-nav a:hover{
+    padding-bottom: 31px;
+    border-bottom: 3.5px solid black;
+  }
+  
+}
+
+@media screen and (max-width: 835px) {
+  .order-item {
+    padding: 10px;
+  }
+
+  .profile-album-cover {
+    width: 80px;
+    height: 80px;
+  }
+
+  .product-cover-container {
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .product-info {
+    width: 100%;
+    margin-top: 50px; /* Adjust as needed */
+    translate: 0%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-details {
+    display: block;
+  }
+
+  .product-album-cover {
+    width: 80%;
+    max-width: 550px;
+  }
+
+  .product-album-cover-vinyl-two {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .underline {
+    width: 100%;
+  }
+
+  .site-content {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
+
+@media screen and (max-width: 1300px) {
+  .product-album-cover {
+    max-width: 375px;
+  }
+
+  .product-album-cover-vinyl-two {
+    max-width: 360px;
+  }
+
+  .product-page {
+    margin: 5%;
+  }
+
+  .product-info {
+    translate: -30%;
+  }
+
+  .underline {
+    width: 130%;
+  }
+
+  .product-cover-container {
+    justify-content: normal;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .product-description {
+    margin-top: 9%;
+  }
+
+  .product-album-cover {
+    display: block;
+  }
+
+  .page-title h2, .cart-header h2, .checkout-title h2 {
+    font-size: 3rem;
+  }
+
+
+}
+
+@media screen and (max-width: 1350px) {
+  /* .product-info {
+    width: 25%;
+    translate: -75%;
+  } */
+
+
+  .product-add-to-cart-btn {
+    padding: 15px 20px;
+  }
+
+  /* .product-cover-container {
+    width: 75%;
+  } */
+}
+
+@media screen and (min-width: 1300px) {
+  .album-list li {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .product-info {
+    translate: 0%;
+  }
+
+  .underline {
+    width: 100%;
+  }
+
+  .quantity-box {
+    align-items: center;
+  }
+
+  .quantity-input {
+    display: block;
+  }
+}
+
+.checkout-title {
+  padding-bottom: 2%;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-top: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--main-color);
+}
+
+.helptext, .errorlist {
+  font-size: 0;
+}
+
+.form-container {
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-form {
+  /* padding: 30px; */
+  margin-bottom: 15px;
+  /* border: 1px solid #ddd; */
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.register-form p {
+  margin: 20px;
+}
+
+.register-button {
+  background-color: var(--main-color); /* Use your main color for button */
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.register-site-content {
+  margin-top: 20px;
+}

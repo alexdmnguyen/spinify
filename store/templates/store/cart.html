@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-title animate-border">
+  <h2>My Cart</h2>
+</section>
+
+{% if cart.cartitem_set.all %}
+<div class="cart-container">
+  <ul class="cart">
+    {% for item in cart.cartitem_set.all %}
+    <li class="cart-item">
+      {% if item.album.cover_url %}
+      <img src="{{ item.album.cover_url }}" alt="{{ item.album.title }} cover">
+      {% endif %}
+      <div class="item-details">
+        <span><span class="cart-album-title"><strong>{{ item.album.title }} </strong></span> Vinyl Record - <span class="profile-album-artist"><i>{{item.album.artist }}</i></span></span>
+
+        <!-- Quantity input box -->
+        <br>
+        <form method="post" action="{% url 'update_cart' %}">
+          {% csrf_token %}
+          <input type="hidden" name="album_id" value="{{ item.album.spotify_id }}">
+          <span class="album-price"><strong>Qty:</strong></span>
+          <input type="number" class="cart-quantity-box" name="quantity_{{ item.album.spotify_id }}" value="{{ item.quantity }}" min="1" oninput="validateQuantity(this)" onkeydown="updateOnEnter(event)">
+          <button type="submit" class="remove-button">Update Quantity</button>
+        </form>
+        <p class="album-price"><strong>Price:</strong> ${{ item.album.price }}</p>
+        <!-- <p class="album-price"><strong>Total:</strong> ${{ item.total_item_price }}</p> -->
+        <form action="{% url 'remove_from_cart' item.album.spotify_id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="remove-button">Remove Item</button>
+        </form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="cart-bottom">
+  <p class="album-price"><strong>Subtotal:</strong> ${{ total_price }}</p>
+  <div class="cart-buttons">
+    <form action="{% url 'clear_cart' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="remove-button">Clear Cart</button>
+    </form>
+    <div class="checkout-btn">
+      <a class="checkout-btn-text" href="{% url 'checkout' %}">Proceed to Checkout</a>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="empty-cart-message">
+  <p class="no-albums-msg">Your cart is empty. Add your favorite vinyl to your cart!</p>
+</div>
+{% endif %}
+
+<script>
+  function updateOnEnter(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      // Submit the form when Enter key is pressed
+      event.target.form.submit();
+    }
+  }
+
+  function validateQuantity(input) {
+    // Ensure quantity is a positive integer
+    input.value = Math.max(1, Math.floor(input.value));
+  }
+</script>
+{% endblock %}

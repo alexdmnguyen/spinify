@@ -1,0 +1,23 @@
+<!-- store/templates/store/login.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-title animate-border">
+  <h2>Login</h2>
+</section>
+
+<main class="register-site-content">
+  <!-- <h2>Login</h2> -->
+  <div class="form-container">
+    {% if error_message %}
+      <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    <form method="post" action="{% url 'login' %}" class="register-form">
+      {% csrf_token %}
+      {{ form.as_p }}  <!-- Render the form using form.as_p -->
+      <button class="register-btn" type="submit">Login</button>
+    </form>
+  </div>
+</main>
+{% endblock %}

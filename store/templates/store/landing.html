@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% if error_message %}
+  <p>{{ error_message }}</p>
+{% else %}
+  <section class="page-title animate-border">
+    <h2>Welcome to Spinify!</h2>
+  </section>
+
+  <p class="landing-msg">Register with Spinify and connect your Spotify account to generate your personalized Vinyl Shop!</p>
+
+  <ul class="album-list">
+    <li>
+      <div class="album-container">
+        <div class="cover-container">
+          <img class="album-cover" src="{% static 'images/dangerous-woman-cover.png' %}" alt="dangerous-woman">
+          <!-- <img class="album-cover-vinyl" src="{% static 'images/cd.png' %}" alt="CD Picture"> -->
+          <img class="album-cover-vinyl-two" src="{% static 'images/cd2.png' %}" alt="CD Picture">
+        </div>
+        <p class="album-info">Dangerous Woman</p>
+        <p class="album-artist">Ariana Grande</p>
+        <p class="album-price">$9.99</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="album-container">
+        <div class="cover-container">
+          <img class="album-cover" src="{% static 'images/sftsaftm-cover.jpg' %}" alt="sftsaftm">
+          <!-- <img class="album-cover-vinyl" src="{% static 'images/cd.png' %}" alt="CD Picture"> -->
+          <img class="album-cover-vinyl-two" src="{% static 'images/cd2.png' %}" alt="CD Picture">
+        </div>
+        <p class="album-info">Shoot For The Stars Aim For The Moon (Deluxe)</p>
+        <p class="album-artist">Pop Smoke</p>
+        <p class="album-price">$9.99</p>
+      </div>
+    </li>
+
+    <li>
+      <div class="album-container">
+        <div class="cover-container">
+          <img class="album-cover" src="{% static 'images/apex-cover.jpg' %}" alt="apex">
+          <!-- <img class="album-cover-vinyl" src="{% static 'images/cd.png' %}" alt="CD Picture"> -->
+          <img class="album-cover-vinyl-two" src="{% static 'images/cd2.png' %}" alt="CD Picture">
+        </div>
+        <p class="album-info">Apex</p>
+        <p class="album-artist">Excision</p>
+        <p class="album-price">$9.99</p>
+      </div>
+    </li>
+
+  </ul>
+
+{% endif %}
+
+{% endblock %}
