@@ -1,7 +1,6 @@
 anaconda-client==1.11.2
 anaconda-navigator==2.1.1
 appdirs==1.4.4
-argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
 argon2-cffi-bindings @ file:///C:/ci/argon2-cffi-bindings_1644551690056/work
 arrow @ file:///C:/b/abs_cal7u12ktb/croot/arrow_1676588147908/work
 asgiref==3.7.2
