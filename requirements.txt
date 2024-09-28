@@ -1,6 +1,5 @@
 anaconda-client==1.11.2
 anaconda-navigator==2.1.1
-anyio @ file:///C:/ci/anyio_1644481921011/work/dist
 appdirs==1.4.4
 argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
 argon2-cffi-bindings @ file:///C:/ci/argon2-cffi-bindings_1644551690056/work
@@ -338,3 +337,7 @@ zict @ file:///C:/b/abs_fc7elavmem/croot/zict_1682698759288/work
 zipp @ file:///C:/b/abs_b9jfdr908q/croot/zipp_1672387552360/work
 zope.interface @ file:///C:/ci/zope.interface_1625036252485/work
 zstandard==0.19.0
+Django==4.1
+gunicorn==20.1.0
+requests==2.28.1
+
