@@ -1,1 +1,1 @@
-web: gunicorn vinyl.wsgi --log-file -
+web: gunicorn spotifystore.wsgi --log-file -
