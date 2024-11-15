@@ -1,1 +1,1 @@
-web: gunicorn spotifystore.wsgi --log-file -
+web: gunicorn spotifystore.wsgi:application
