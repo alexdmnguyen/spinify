@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-_i8$&tj5jzi-u-944$7d(%imfgx$z)p11c$c9tirlall4916-6')
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['spinify.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1','spinify.onrender.com', 'localhost',]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
