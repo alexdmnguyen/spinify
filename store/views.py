@@ -50,7 +50,14 @@ def spotify_callback(request):
 
 
 def landing(request):
-    return render(request, 'store/landing.html')
+    error_message = None  # Set this dynamically if needed
+
+    context = {
+        'error_message': error_message,  # Add this to your context
+        # Add any other context data you need
+    }
+
+    return render(request, 'store/landing.html', context)
 
 def home(request):
     if request.user.is_authenticated:
